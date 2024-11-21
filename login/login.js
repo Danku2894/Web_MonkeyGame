@@ -8,77 +8,76 @@ document.addEventListener('DOMContentLoaded', function() {
     path: 'animation.json'
   });
 
-  // Xử lý form submit
-  const loginForm = document.querySelector('.login-form');
-  loginForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    
-    if (validateForm(email, password)) {
-      // Thêm class loading cho nút
-      const button = document.querySelector('.btn-login');
-      button.innerHTML = 'Logging in...';
-      button.style.opacity = '0.7';
-      
-      // Giả lập đăng nhập
-      setTimeout(() => {
-        showNotification('Login successful!', 'success');
-        button.innerHTML = 'Login';
-        button.style.opacity = '1';
-      }, 2000);
-    }
-  });
+  // Xử lý đăng nhập
+  const loginForm = document.getElementById('login-form');
+  if (loginForm) {
+    loginForm.addEventListener('submit', handleLogin);
+  }
 
-  // Thêm hiệu ứng ripple cho nút
-  const button = document.querySelector('.btn-login');
-  button.addEventListener('click', createRipple);
+  // Xử lý hiển thị/ẩn mật khẩu
+  const toggleButtons = document.querySelectorAll('.toggle-password');
+  toggleButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const input = this.previousElementSibling;
+      const icon = this.querySelector('i');
+      
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.className = 'fa-regular fa-eye';
+      } else {
+        input.type = 'password';
+        icon.className = 'fa-regular fa-eye-slash';
+      }
+    });
+  });
 });
 
-// Hàm validate form
-function validateForm(email, password) {
-  let isValid = true;
+// Xử lý đăng nhập
+function handleLogin(event) {
+  event.preventDefault();
   
-  if (!email || !isValidEmail(email)) {
-    showNotification('Please enter a valid email', 'error');
-    isValid = false;
+  const email = document.getElementById('login-email').value;
+  const password = document.getElementById('login-password').value;
+
+  // Debug: Kiểm tra giá trị nhập vào
+  console.log('Email:', email);
+  console.log('Password:', password);
+
+  // Lấy thông tin user từ localStorage
+  const users = JSON.parse(localStorage.getItem('users')) || [];
+  
+  // Debug: Kiểm tra danh sách users
+  console.log('Users:', users);
+
+  // Tìm user trong danh sách
+  const user = users.find(u => u.email === email && u.password === password);
+  
+  // Debug: Kiểm tra user tìm được
+  console.log('Found user:', user);
+
+  if (user) {
+    // Lưu trạng thái đăng nhập
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    
+    // Hiển thị thông báo thành công
+    alert('Đăng nhập thành công!');
+    
+    // Debug: Kiểm tra trước khi chuyển hướng
+    console.log('Redirecting to home...');
+    
+    // Chuyển hướng về trang home
+    window.location.href = '../home.html';
+  } else {
+    alert('Email hoặc mật khẩu không chính xác!');
   }
-  
-  if (!password || password.length < 6) {
-    showNotification('Password must be at least 6 characters', 'error');
-    isValid = false;
-  }
-  
-  return isValid;
 }
 
-// Kiểm tra email hợp lệ
+// Hàm kiểm tra email
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-// Hiệu ứng ripple khi click button
-function createRipple(event) {
-  const button = event.currentTarget;
-  const ripple = document.createElement('span');
-  
-  const diameter = Math.max(button.clientWidth, button.clientHeight);
-  const radius = diameter / 2;
-  
-  ripple.style.width = ripple.style.height = `${diameter}px`;
-  ripple.style.left = `${event.clientX - button.offsetLeft - radius}px`;
-  ripple.style.top = `${event.clientY - button.offsetTop - radius}px`;
-  ripple.classList.add('ripple');
-  
-  button.appendChild(ripple);
-  
-  ripple.addEventListener('animationend', () => {
-    ripple.remove();
-  });
-}
-
-// Hiển thị thông báo
+// Hàm hiển thị thông báo
 function showNotification(message, type) {
   const notification = document.createElement('div');
   notification.className = `notification ${type}`;
@@ -96,19 +95,5 @@ function showNotification(message, type) {
       notification.remove();
     }, 300);
   }, 3000);
-}
-
-// Hàm toggle password
-function togglePassword() {
-  const passwordInput = document.getElementById('password');
-  const toggleBtn = document.querySelector('.toggle-password i');
-  
-  if (passwordInput.type === 'password') {
-    passwordInput.type = 'text';
-    toggleBtn.className = 'fa-regular fa-eye';
-  } else {
-    passwordInput.type = 'password';
-    toggleBtn.className = 'fa-regular fa-eye-slash';
-  }
 }
   

@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Kiểm tra đăng nhập ngay khi trang load
+    checkLoginStatus();
+
     // Banner Slider
     const slides = document.querySelectorAll('.banner-slide');
     const dots = document.querySelectorAll('.dot');
@@ -148,25 +151,76 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = 'login.html';
     }
 
-    // Kiểm tra đăng nhập và cập nhật UI
+    // Hàm kiểm tra trạng thái đăng nhập và cập nhật UI
     function checkLoginStatus() {
-        const userData = getUserData();
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
         const loginBtn = document.querySelector('.nav__login-btn');
         
-        if (userData) {
-            // Đã đăng nhập
-            loginBtn.innerHTML = `
-                <i class="fas fa-user"></i>
-                <span>${userData.username}</span>
+        console.log('Current user:', currentUser); // Debug
+        console.log('Login button:', loginBtn); // Debug
+        
+        if (currentUser && loginBtn) {
+            // Tạo container cho cart và user menu
+            const userContainer = document.createElement('div');
+            userContainer.className = 'nav__user-container';
+            
+            // Tạo cart icon
+            const cartMenu = document.createElement('div');
+            cartMenu.className = 'nav__cart-menu';
+            cartMenu.innerHTML = `
+                <div class="nav__cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="nav__cart-dropdown">
+                    <div class="cart-header">
+                        <h3>Giỏ hàng</h3>
+                    </div>
+                    <div class="cart-items">
+                        <p class="empty-cart">Giỏ hàng trống</p>
+                    </div>
+                    <div class="cart-footer">
+                        <div class="cart-total">
+                            <span>Tổng cộng:</span>
+                            <span class="total-amount">0đ</span>
+                        </div>
+                        <a href="checkout.html" class="checkout-btn">Thanh toán</a>
+                    </div>
+                </div>
             `;
-            loginBtn.href = 'profile.html';
-        } else {
-            // Chưa đăng nhập
-            loginBtn.innerHTML = `
-                <i class="fas fa-sign-in-alt"></i>
-                <span>Đăng nhập</span>
+
+            // Tạo user menu (giữ nguyên code cũ)
+            const userMenu = document.createElement('div');
+            userMenu.className = 'nav__user-menu';
+            userMenu.innerHTML = `
+                <div class="nav__user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>${currentUser.username}</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="nav__user-dropdown">
+                    <a href="profile.html" class="dropdown-item">
+                        <i class="fas fa-user"></i>
+                        <span>Hồ sơ</span>
+                    </a>
+                    <a href="settings.html" class="dropdown-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Cài đặt</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" onclick="handleLogout(event)" class="dropdown-item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Đăng xuất</span>
+                    </a>
+                </div>
             `;
-            loginBtn.href = 'login.html';
+            
+            // Thêm cả cart và user menu vào container
+            userContainer.appendChild(cartMenu);
+            userContainer.appendChild(userMenu);
+            
+            // Thay thế nút đăng nhập bằng container
+            loginBtn.parentNode.replaceChild(userContainer, loginBtn);
         }
     }
 
@@ -189,17 +243,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Xử lý đăng nhập
     function handleLogin(event) {
         event.preventDefault();
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
+        
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
 
-        const users = JSON.parse(localStorage.getItem('users') || '[]');
+        // Lấy thông tin user từ localStorage
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        
+        // Tìm user trong danh sách
         const user = users.find(u => u.email === email && u.password === password);
 
         if (user) {
-            saveUserData(user);
-            window.location.href = 'index.html';
+            // Lưu trạng thái đăng nhập
+            localStorage.setItem('currentUser', JSON.stringify(user));
+            
+            // Thông báo thành công
+            alert('Đăng nhập thành công!');
+            
+            // Chuyển hướng về trang chủ
+            window.location.href = 'home.html';
         } else {
-            alert('Email hoặc mật khẩu không đúng!');
+            alert('Email hoặc mật khẩu không chính xác!');
         }
     }
 
@@ -233,16 +297,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Kiểm tra trạng thái đăng nhập
-    checkLoginStatus();
-
     // Thêm event listeners cho các form
     const registerForm = document.getElementById('registerForm');
     if (registerForm) {
         registerForm.addEventListener('submit', handleRegister);
     }
 
-    const loginForm = document.getElementById('loginForm');
+    const loginForm = document.getElementById('login-form');
     if (loginForm) {
         loginForm.addEventListener('submit', handleLogin);
     }
@@ -260,4 +321,34 @@ document.addEventListener('DOMContentLoaded', function() {
         
         profileForm.addEventListener('submit', handleProfileUpdate);
     }
+
+    // Hàm xử lý đăng xuất
+    window.handleLogout = function(event) {
+        event.preventDefault();
+        localStorage.removeItem('currentUser');
+        window.location.href = 'login/login.html';
+    };
+
+    // Thêm event listener cho nút thanh toán
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('checkout-btn')) {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            if (cartItems.length === 0) {
+                e.preventDefault();
+                alert('Giỏ hàng của bạn đang trống!');
+            }
+        }
+    });
+
+    // Xử lý click vào game card
+    const gameCards = document.querySelectorAll('.game-card');
+    gameCards.forEach(card => {
+        card.style.cursor = 'default';
+    });
+
+    // Thêm event listener cho game title
+    const gameTitles = document.querySelectorAll('.game-title');
+    gameTitles.forEach(title => {
+        title.style.cursor = 'pointer';
+    });
 }); 

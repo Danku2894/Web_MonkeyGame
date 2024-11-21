@@ -179,26 +179,26 @@ body {
     top: 20px;
     right: 20px;
     padding: 15px 25px;
-    border-radius: 10px;
+    border-radius: 5px;
     color: white;
-    font-size: 0.9rem;
-    transform: translateX(150%);
-    transition: transform 0.3s ease;
+    font-size: 1rem;
     z-index: 1000;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.3s ease;
 }
   
 .notification.show {
+    opacity: 1;
     transform: translateX(0);
 }
   
 .notification.success {
-    background: linear-gradient(45deg, #2ecc71, #27ae60);
+    background: #4CAF50;
 }
   
 .notification.error {
-    background: linear-gradient(45deg, #dc3545, #ff4444);
+    background: #f44336;
 }
   
 /* Hiệu ứng ripple cho button */
@@ -275,5 +275,68 @@ body {
     color: #999;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
+}
+  
+/* User Menu Styles */
+.nav__user-menu {
+  position: relative;
+  cursor: pointer;
+}
+
+.nav__user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.nav__user-info i {
+  font-size: 1.2rem;
+  color: #4CAF50;
+}
+
+.nav__user-info span {
+  color: white;
+  font-size: 0.9rem;
+}
+
+.nav__user-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 10px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  padding: 8px 0;
+  min-width: 180px;
+  display: none;
+  z-index: 1000;
+}
+
+.nav__user-menu:hover .nav__user-dropdown {
+  display: block;
+}
+
+.nav__user-dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.nav__user-dropdown a:hover {
+  background: #f5f5f5;
+}
+
+.nav__user-dropdown i {
+  font-size: 1rem;
+  color: #666;
 }
   
