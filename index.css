@@ -1,0 +1,374 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+    background-color: #0d1117;
+    color: #ffffff;
+}
+
+/* Header Styles */
+header {
+    background-color: #161b22;
+    padding: 0.5rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 55px;
+    width: auto;
+    padding: 0.5rem 0;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 3rem;
+}
+
+.nav-center {
+    display: flex;
+    gap: 2rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-right {
+    margin-left: auto;
+}
+
+.nav-center a {
+    color: #8b949e;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.nav-center a:hover {
+    color: #ffffff;
+    background-color: #21262d;
+}
+
+.language-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid #30363d;
+    transition: all 0.3s ease;
+}
+
+.language-btn:hover {
+    background-color: #21262d;
+}
+
+.language-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(13, 17, 23, 0.8), rgba(13, 17, 23, 0.9)),
+                url('./images/banner.jpg') center/cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.hero p {
+    color: #8b949e;
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    line-height: 1.6;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.web-version-link {
+    text-decoration: none;
+}
+
+.cta-buttons button,
+.web-version {
+    padding: 0 1.5rem;
+    border-radius: 6px;
+    border: none;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: all 0.2s ease;
+    width: 240px;
+    height: 40px;
+    white-space: nowrap;
+}
+
+.cta-buttons i {
+    font-size: 1rem;
+    width: 16px;
+    text-align: center;
+}
+
+.download,
+.web-version {
+    width: 240px;
+}
+
+.cta-buttons button:hover,
+.web-version:hover {
+    transform: none;
+}
+
+/* Features Section */
+.features {
+    padding: 3rem 0;
+}
+
+.feature-card {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    background-color: #161b22;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+.feature-card img {
+    width: 50%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.feature-content {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.feature-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature-content p {
+    color: #8b949e;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Games Section */
+.games {
+    padding: 3rem 0;
+}
+
+.games .container {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+    background-color: #161b22;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.games-content {
+    flex: 1;
+    padding: 3rem;
+}
+
+.games-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.games-content p {
+    color: #8b949e;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.games-image {
+    flex: 1;
+    height: 400px;
+}
+
+.games-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+/* Footer */
+footer {
+    background-color: #161b22;
+    padding: 2.5rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.footer-links a {
+    color: #8b949e;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .cta-buttons button,
+    .web-version,
+    .download {
+        width: 100%;
+    }
+    
+    .feature-card, .games .container {
+        flex-direction: column;
+    }
+    
+    .feature-card img, 
+    .games-image,
+    .feature-content, 
+    .games-content {
+        width: 100%;
+        padding: 2rem;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+        max-width: 100%;
+        padding: 0 1.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+        padding: 0 1.5rem;
+    }
+} 
+
+/* Thêm style cho web-version-link */
+.web-version-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-buttons button {
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    width: 240px;
+}
+
+.download,
+.web-version {
+    width: 240px;
+}
+
+/* Đảm bảo text được căn giữa với icon */
+.cta-buttons button span,
+.web-version span {
+    flex: 1;
+    text-align: left;
+}
+
+/* Thêm lại màu cho các nút */
+.download {
+    background-color: white;
+    color: #0d1117;
+}
+
+.web-version {
+    background-color: #7c4dff; /* Màu tím */
+    color: white;
+}
+
+/* Hiệu ứng hover */
+.download:hover {
+    background-color: #f0f0f0;
+}
+
+.web-version:hover {
+    background-color: #6929b8;
+}
