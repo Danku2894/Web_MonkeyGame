@@ -1,8 +1,9 @@
-/* Profile Styles */
+/* Profile Container */
 .profile-container {
+    position: relative;
     max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
+    margin: 20px auto;
+    padding: 20px;
     display: flex;
     gap: 30px;
 }
@@ -10,104 +11,66 @@
 /* Sidebar Styles */
 .profile-sidebar {
     width: 280px;
+    min-width: 280px;
     background: var(--primary-color);
-    border-radius: 15px;
-    padding: 30px;
+    border-radius: 10px;
+    padding: 20px;
     height: fit-content;
+    position: sticky;
+    top: 20px;
+    order: -1;
 }
 
-.profile-avatar {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 30px;
-}
-
-.profile-avatar img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #4CAF50;
-}
-
-.change-avatar-btn {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: #4CAF50;
-    border: none;
+.profile-sidebar h2 {
     color: white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.change-avatar-btn:hover {
-    background: #45a049;
-    transform: scale(1.1);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .profile-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
 }
 
-.menu-item {
+.profile-menu li {
+    margin-bottom: 5px;
+}
+
+.profile-menu a {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     padding: 12px 15px;
-    color: white;
+    color: #999;
     text-decoration: none;
     border-radius: 8px;
     transition: all 0.3s ease;
 }
 
-.menu-item:hover {
-    background: rgba(255, 255, 255, 0.1);
+.profile-menu a:hover {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
 }
 
-.menu-item.active {
+.profile-menu li.active a {
     background: #4CAF50;
+    color: white;
 }
 
-.menu-item i {
+.profile-menu i {
+    font-size: 1.1rem;
     width: 20px;
     text-align: center;
-}
-
-.logout-btn {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 15px;
-    margin-top: 20px;
-    background: transparent;
-    border: 1px solid #ff4444;
-    color: #ff4444;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 100%;
-    transition: all 0.3s ease;
-}
-
-.logout-btn:hover {
-    background: #ff4444;
-    color: white;
 }
 
 /* Content Styles */
 .profile-content {
     flex: 1;
     background: var(--primary-color);
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 30px;
 }
 
@@ -116,8 +79,8 @@
 }
 
 .profile-header h1 {
-    font-size: 2rem;
     color: white;
+    font-size: 1.8rem;
     margin-bottom: 10px;
 }
 
@@ -134,33 +97,27 @@
 
 .profile-section h2 {
     color: white;
-    margin-bottom: 20px;
     font-size: 1.3rem;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
     margin-bottom: 20px;
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    position: relative;
+    margin-bottom: 20px;
 }
 
 .form-group label {
+    display: block;
     color: #999;
-    font-size: 0.9rem;
+    margin-bottom: 8px;
 }
 
 .form-group input {
+    width: 100%;
     padding: 12px;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    border-radius: 5px;
     color: white;
     font-size: 1rem;
     transition: all 0.3s ease;
@@ -169,104 +126,251 @@
 .form-group input:focus {
     outline: none;
     border-color: #4CAF50;
+    background: rgba(255, 255, 255, 0.15);
 }
 
-.password-input {
-    position: relative;
-}
-
-.toggle-password {
+.edit-btn {
     position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #999;
-    cursor: pointer;
-}
-
-.form-actions {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.save-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 25px;
-    background: #4CAF50;
-    color: white;
+    right: 10px;
+    top: 38px;
+    background: none;
     border: none;
-    border-radius: 8px;
+    color: #4CAF50;
     cursor: pointer;
-    font-size: 1rem;
+    padding: 5px;
     transition: all 0.3s ease;
 }
 
-.save-btn:hover {
+.edit-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Referral Link */
+.referral-link {
+    display: flex;
+    gap: 10px;
+}
+
+.referral-link input {
+    flex: 1;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.copy-btn {
+    padding: 0 15px;
+    background: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
     background: #45a049;
     transform: translateY(-2px);
 }
 
-/* Activity List */
-.activity-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+/* Verification Section */
+.verify-note {
+    color: #ff4444;
+    margin-top: 10px;
+    font-size: 0.9rem;
 }
 
-.activity-item {
+/* Logout Button */
+.profile-logout {
+    margin-top: auto;
+}
+
+.logout-btn {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.05);
+    gap: 10px;
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 59, 48, 0.1);
+    border: none;
     border-radius: 8px;
+    color: #ff3b30;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
-.activity-item i {
+.logout-btn:hover {
+    background: rgba(255, 59, 48, 0.2);
+}
+
+/* Style cho form đổi mật khẩu */
+#password-form {
+    margin-top: 20px;
+}
+
+.change-password-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.change-password-btn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+}
+
+.toggle-password {
+    color: #4CAF50;
+}
+
+.toggle-password:hover {
+    color: #45a049;
+}
+
+/* Balance Page Styles */
+.balance-amount {
+    font-size: 2.5rem;
+    color: #4CAF50;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.add-balance-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.add-balance-btn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+}
+
+.transaction-list {
+    margin-top: 20px;
+}
+
+/* History Page Styles */
+.purchase-filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.filter-select {
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+}
+
+.purchase-list {
+    margin-top: 20px;
+}
+
+/* Empty State Styles */
+.empty-state {
+    text-align: center;
+    padding: 40px 0;
+    color: #666;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+}
+
+/* Style cho nút quay lại */
+.back-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
     width: 40px;
     height: 40px;
-    background: rgba(76, 175, 80, 0.2);
-    color: #4CAF50;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+.back-btn i {
     font-size: 1.2rem;
 }
 
-.activity-info p {
-    color: white;
-    margin-bottom: 5px;
-}
-
-.activity-info span {
-    color: #999;
-    font-size: 0.9rem;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
+/* Đảm bảo content hiển thị trước sidebar trên mobile */
+@media (max-width: 768px) {
     .profile-container {
         flex-direction: column;
+        padding-top: 80px;
     }
 
     .profile-sidebar {
         width: 100%;
+        position: static;
+        order: 2;
     }
 
-    .form-row {
-        grid-template-columns: 1fr;
+    .profile-content {
+        order: 1;
     }
 }
 
-@media (max-width: 576px) {
-    .profile-content {
-        padding: 20px;
-    }
+/* Thêm margin-top cho main để tránh bị đè bởi header */
+.main {
+    margin-top: 0;
+    min-height: 100vh;
+    background: var(--background-color);
+}
 
-    .profile-section {
-        padding: 20px;
-    }
+/* Đảm bảo header luôn ở trên cùng */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 } 

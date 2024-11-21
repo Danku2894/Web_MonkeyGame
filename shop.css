@@ -444,7 +444,7 @@ body {
 
 .library__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
 }
 
@@ -690,8 +690,8 @@ body {
 
 .game-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
     padding: 10px 0;
 }
 
@@ -699,12 +699,9 @@ body {
     background: var(--primary-color);
     border-radius: 10px;
     overflow: hidden;
-    transition: all 0.3s ease;
-    position: relative;
+    transition: transform 0.3s ease;
     height: 400px;
-    min-width: calc((100% - 100px) / 6);
-    flex-shrink: 0;
-    cursor: default;
+    position: relative;
 }
 
 .game-card:hover {
@@ -715,7 +712,6 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    pointer-events: none;
 }
 
 .game-info {
@@ -1127,29 +1123,6 @@ body {
 
 .contact-card p {
     color: #666;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .community-hero h1,
-    .support-hero h1 {
-        font-size: 2rem;
-    }
-
-    .community-features,
-    .support-categories,
-    .contact-methods {
-        grid-template-columns: 1fr;
-    }
-
-    .search-box {
-        flex-direction: column;
-    }
-
-    .search-box button {
-        width: 100%;
-        padding: 15px;
-    }
 }
 
 /* Sửa li Search Banner Styles */
@@ -1621,8 +1594,8 @@ body {
 
 .game-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
     padding: 10px 0;
 }
 
@@ -2308,4 +2281,572 @@ body {
 
 .game-title:hover::after {
     width: 100%;
+}
+
+/* Checkout Page Styles */
+.checkout-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.checkout-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+}
+
+.checkout-summary {
+    background: var(--primary-color);
+    padding: 30px;
+    border-radius: 10px;
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.checkout-summary h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.checkout-total {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.checkout-total > div {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.checkout-form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.checkout-form h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.payment-methods {
+    margin: 30px 0;
+}
+
+.payment-methods h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.payment-option:hover {
+    border-color: #4CAF50;
+    background: #f9f9f9;
+}
+
+.payment-option input[type="radio"] {
+    margin: 0;
+    accent-color: #4CAF50;
+}
+
+.payment-option label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    flex: 1;
+    margin: 0;
+    color: #333;
+}
+
+.payment-option i {
+    font-size: 1.2rem;
+    color: #4CAF50;
+}
+
+.payment-submit-btn {
+    display: block;
+    width: 60%;
+    padding: 15px 30px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin: 30px auto 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.payment-submit-btn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.payment-submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .checkout-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .checkout-summary {
+        position: relative;
+        top: 0;
+    }
+
+    .payment-submit-btn {
+        width: 100%;
+    }
+}
+
+/* Support Page Styles */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('support-bg.jpg');
+    background-size: cover;
+    padding: 100px 0;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.support-categories {
+    padding: 80px 0;
+    background: #f5f5f5;
+}
+
+.support__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.support__card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.support__card:hover {
+    transform: translateY(-5px);
+}
+
+.support__icon {
+    font-size: 2.5rem;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.support__card-title {
+    color: #333;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.support__card-text {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.support__card .button {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.support__card .button:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+}
+
+.faq-section {
+    padding: 60px 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.faq-item {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.faq-item h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.faq-item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.contact-section {
+    padding: 60px 0;
+    background: #f5f5f5;
+}
+
+.contact-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contact-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+.contact-card i {
+    font-size: 2.5rem;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+.contact-card h3 {
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    color: #666;
+}
+
+/* Library Styles */
+.library-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.library-header {
+    margin-bottom: 30px;
+}
+
+.library-header h1 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.library-filters {
+    display: flex;
+    gap: 15px;
+}
+
+.library-filters .search-input {
+    flex: 1;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: white;
+}
+
+.library-filters .filter-select {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: white;
+    min-width: 150px;
+}
+
+.library-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.library-card {
+    background: var(--primary-color);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.library-card:hover {
+    transform: translateY(-5px);
+}
+
+.library-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.game-info {
+    padding: 20px;
+}
+
+.game-info h3 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.game-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.game-status.installed {
+    color: #4CAF50;
+}
+
+.game-status.not-installed {
+    color: #999;
+}
+
+.game-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.play-btn, .install-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.play-btn:hover, .install-btn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+}
+
+.uninstall-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 59, 48, 0.1);
+    color: #ff3b30;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Library Game Card Styles */
+.lib-game-card {
+    background: var(--primary-color);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.lib-game-card:hover {
+    transform: translateY(-5px);
+}
+
+.lib-game-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.lib-card-content {
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.lib-card-content h3 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.lib-game-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.lib-game-status.installed {
+    color: #4CAF50;
+}
+
+.lib-game-status.not-installed {
+    color: #999;
+}
+
+.lib-game-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.lib-play-btn, .lib-install-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.lib-uninstall-btn {
+    padding: 10px;
+    width: 40px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 59, 48, 0.1);
+    color: #ff3b30;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Profile Styles */
+.profile-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+}
+
+.profile-sidebar {
+    width: 280px;
+    min-width: 280px;
+    position: sticky;
+    top: 20px;
+}
+
+.profile-content {
+    flex: 1;
 }

@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thư Viện Game - MonkeyGameShop</title>
+    <title>Thư viện - MonkeyGameShop</title>
     <link rel="stylesheet" href="shop.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <header class="header">
         <nav class="nav">
             <div class="nav__logo">
-                <img class="nav__logo-img" src="./images/monkey-logo.svg" alt="MonkeyGameShop">
+                <a href="index.html">
+                    <img class="nav__logo-img" src="./images/monkey-logo.svg" alt="MonkeyGameShop">
+                </a>
             </div>
             <div class="nav__menu">
                 <div class="nav__list">
@@ -41,7 +43,7 @@
                         <i class="fas fa-globe"></i>
                         <span>Tiếng Việt</span>
                     </a>
-                    <a href="#" class="nav__login-btn">
+                    <a href="login/login.html" class="nav__login-btn">
                         <i class="fas fa-sign-in-alt"></i>
                         <span>Đăng nhập</span>
                     </a>
@@ -51,64 +53,244 @@
     </header>
 
     <main class="main">
-        <div class="library">
-            <div class="library__header">
-                <h1 class="library__title">Thư Viện Game</h1>
-                <div class="library__filters">
-                    <div class="library__search">
-                        <input type="text" placeholder="Tìm kiếm game..." class="library__search-input">
-                        <i class="fas fa-search library__search-icon"></i>
-                    </div>
-                    <div class="library__filter-buttons">
-                        <button class="library__filter-btn library__filter-btn--active">Tất cả</button>
-                        <button class="library__filter-btn">Đã cài đặt</button>
-                        <button class="library__filter-btn">Yêu thích</button>
-                    </div>
-                    <div class="library__sort">
-                        <select class="library__sort-select">
-                            <option value="recent">Gần đây nhất</option>
-                            <option value="alphabetical">Theo tên A-Z</option>
-                            <option value="playtime">Thời gian chơi</option>
-                        </select>
-                    </div>
+        <div class="library-container">
+            <div class="library-header">
+                <h1>Thư viện game của bạn</h1>
+                <div class="library-filters">
+                    <input type="text" placeholder="Tìm kiếm game..." class="search-input">
+                    <select class="filter-select">
+                        <option value="all">Tất cả</option>
+                        <option value="installed">Đã cài đặt</option>
+                        <option value="not-installed">Chưa cài đặt</option>
+                    </select>
                 </div>
             </div>
 
-            <div class="library__grid">
-                <div class="library-card">
-                    <img class="library-card__image" src="./images/236390_library_600x900.jpg" alt="Red Dead Redemption 2">
-                    <div class="library-card__content">
-                        <h3 class="library-card__title">Red Dead Redemption 2</h3>
-                        <div class="library-card__stats">
-                            <span class="library-card__playtime">Đã chơi: 120 giờ</span>
-                            <span class="library-card__last-played">Lần cuối: 2 ngày trước</span>
-                        </div>
-                        <div class="library-card__actions">
-                            <button class="library-card__play-btn">
-                                <i class="fas fa-play"></i> Chơi ngay
-                            </button>
-                            <button class="library-card__more-btn">
-                                <i class="fas fa-ellipsis-v"></i>
-                            </button>
+            <div class="library-grid">
+                <!-- Game 1 -->
+                <div class="game-card">
+                    <img src="images/cyberpunk-hero.jpg" alt="Cyberpunk 2077">
+                    <div class="game-info">
+                        <span class="edition">DELUXE EDITION</span>
+                        <h3>Cyberpunk 2077</h3>
+                        <div class="game-meta">
+                            <div class="game-status installed">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Đã cài đặt</span>
+                            </div>
+                            <div class="game-actions">
+                                <button class="play-btn">
+                                    <i class="fas fa-play"></i>
+                                    Chơi ngay
+                                </button>
+                                <button class="uninstall-btn">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="library-card">
-                    <img class="library-card__image" src="./images/1874900_library_600x900.jpg" alt="Far Cry 6">
-                    <div class="library-card__content">
-                        <h3 class="library-card__title">Far Cry 6</h3>
-                        <div class="library-card__stats">
-                            <span class="library-card__playtime">Đã chơi: 45 giờ</span>
-                            <span class="library-card__last-played">Lần cuối: 1 tuần trước</span>
+                <!-- Game 2 -->
+                <div class="game-card">
+                    <img src="images/god-of-war.jpg" alt="God of War">
+                    <div class="game-info">
+                        <span class="edition">DELUXE EDITION</span>
+                        <h3>God of War Ragnarök</h3>
+                        <div class="game-meta">
+                            <div class="game-status not-installed">
+                                <i class="fas fa-download"></i>
+                                <span>Chưa cài đặt</span>
+                            </div>
+                            <div class="game-actions">
+                                <button class="install-btn">
+                                    <i class="fas fa-download"></i>
+                                    Cài đặt
+                                </button>
+                            </div>
                         </div>
-                        <div class="library-card__actions">
-                            <button class="library-card__install-btn">
-                                <i class="fas fa-download"></i> Cài đặt
-                            </button>
-                            <button class="library-card__more-btn">
-                                <i class="fas fa-ellipsis-v"></i>
-                            </button>
+                    </div>
+                </div>
+
+                <!-- Game 3 -->
+                <div class="game-card">
+                    <img src="images/spiderman2.jpg" alt="Spider-Man 2">
+                    <div class="game-info">
+                        <span class="edition">DELUXE EDITION</span>
+                        <h3>Marvel's Spider-Man 2</h3>
+                        <div class="game-meta">
+                            <div class="game-status installed">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Đã cài đặt</span>
+                            </div>
+                            <div class="game-actions">
+                                <button class="play-btn">
+                                    <i class="fas fa-play"></i>
+                                    Chơi ngay
+                                </button>
+                                <button class="uninstall-btn">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game 4 -->
+                <div class="game-card">
+                    <img src="images/re4.jpg" alt="Resident Evil 4 Remake">
+                    <div class="game-info">
+                        <span class="edition">DELUXE EDITION</span>
+                        <h3>Resident Evil 4 Remake</h3>
+                        <div class="game-meta">
+                            <div class="game-status installed">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Đã cài đặt</span>
+                            </div>
+                            <div class="game-actions">
+                                <button class="play-btn">
+                                    <i class="fas fa-play"></i>
+                                    Chơi ngay
+                                </button>
+                                <button class="uninstall-btn">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game 5 -->
+                <div class="game-card">
+                    <img src="images/final-fantasy-16.jpg" alt="Final Fantasy XVI">
+                    <div class="game-info">
+                        <span class="edition">DELUXE EDITION</span>
+                        <h3>Final Fantasy XVI</h3>
+                        <div class="game-meta">
+                            <div class="game-status not-installed">
+                                <i class="fas fa-download"></i>
+                                <span>Chưa cài đặt</span>
+                            </div>
+                            <div class="game-actions">
+                                <button class="install-btn">
+                                    <i class="fas fa-download"></i>
+                                    Cài đặt
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game 6 -->
+                <div class="game-card">
+                    <img src="images/lies-of-p.jpg" alt="Lies of P">
+                    <div class="game-info">
+                        <span class="edition">DELUXE EDITION</span>
+                        <h3>Lies of P</h3>
+                        <div class="game-meta">
+                            <div class="game-status installed">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Đã cài đặt</span>
+                            </div>
+                            <div class="game-actions">
+                                <button class="play-btn">
+                                    <i class="fas fa-play"></i>
+                                    Chơi ngay
+                                </button>
+                                <button class="uninstall-btn">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game 7 -->
+                <div class="game-card">
+                    <img src="images/mortal-kombat-1.jpg" alt="Mortal Kombat 1">
+                    <div class="game-info">
+                        <span class="edition">DELUXE EDITION</span>
+                        <h3>Mortal Kombat 1</h3>
+                        <div class="game-meta">
+                            <div class="game-status not-installed">
+                                <i class="fas fa-download"></i>
+                                <span>Chưa cài đặt</span>
+                            </div>
+                            <div class="game-actions">
+                                <button class="install-btn">
+                                    <i class="fas fa-download"></i>
+                                    Cài đặt
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game 8 -->
+                <div class="game-card">
+                    <img src="images/ac-mirage.jpg" alt="Assassin's Creed Mirage">
+                    <div class="game-info">
+                        <span class="edition">DELUXE EDITION</span>
+                        <h3>Assassin's Creed Mirage</h3>
+                        <div class="game-meta">
+                            <div class="game-status installed">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Đã cài đặt</span>
+                            </div>
+                            <div class="game-actions">
+                                <button class="play-btn">
+                                    <i class="fas fa-play"></i>
+                                    Chơi ngay
+                                </button>
+                                <button class="uninstall-btn">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game 9 -->
+                <div class="game-card">
+                    <img src="images/tekken8.jpg" alt="Tekken 8">
+                    <div class="game-info">
+                        <span class="edition">DELUXE EDITION</span>
+                        <h3>Tekken 8</h3>
+                        <div class="game-meta">
+                            <div class="game-status installed">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Đã cài đặt</span>
+                            </div>
+                            <div class="game-actions">
+                                <button class="play-btn">
+                                    <i class="fas fa-play"></i>
+                                    Chơi ngay
+                                </button>
+                                <button class="uninstall-btn">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game 10 -->
+                <div class="game-card">
+                    <img src="images/like-a-dragon.jpg" alt="Like a Dragon: Infinite Wealth">
+                    <div class="game-info">
+                        <span class="edition">DELUXE EDITION</span>
+                        <h3>Like a Dragon: Infinite Wealth</h3>
+                        <div class="game-meta">
+                            <div class="game-status not-installed">
+                                <i class="fas fa-download"></i>
+                                <span>Chưa cài đặt</span>
+                            </div>
+                            <div class="game-actions">
+                                <button class="install-btn">
+                                    <i class="fas fa-download"></i>
+                                    Cài đặt
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -116,14 +298,6 @@
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="footer__links">
-            <a href="#" class="footer__link">Điều khoản dịch vụ</a>
-            <a href="#" class="footer__link">Chính sách bảo mật</a>
-            <a href="#" class="footer__link">Liên hệ</a>
-        </div>
-    </footer>
-    
     <script src="script.js"></script>
 </body>
 </html> 

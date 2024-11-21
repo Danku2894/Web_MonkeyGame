@@ -203,9 +203,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         <i class="fas fa-user"></i>
                         <span>Hồ sơ</span>
                     </a>
-                    <a href="settings.html" class="dropdown-item">
-                        <i class="fas fa-cog"></i>
-                        <span>Cài đặt</span>
+                    <a href="balance.html" class="dropdown-item">
+                        <i class="fas fa-wallet"></i>
+                        <span>Số dư tài khoản</span>
+                    </a>
+                    <a href="history.html" class="dropdown-item">
+                        <i class="fas fa-gamepad"></i>
+                        <span>Lịch sử mua</span>
                     </a>
                     <div class="dropdown-divider"></div>
                     <a href="#" onclick="handleLogout(event)" class="dropdown-item">
