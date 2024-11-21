@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư Viện Game - MonkeyGameShop</title>
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav__logo">
+                <img class="nav__logo-img" src="./images/monkey-logo.svg" alt="MonkeyGameShop">
+            </div>
+            <div class="nav__menu">
+                <div class="nav__list">
+                    <a href="home.html" class="nav__link">
+                        <i class="nav__icon fas fa-home"></i>
+                        <span class="nav__text">Trang chủ</span>
+                    </a>
+                    <a href="store.html" class="nav__link">
+                        <i class="nav__icon fas fa-store"></i>
+                        <span class="nav__text">Cửa hàng</span>
+                    </a>
+                    <a href="library.html" class="nav__link nav__link--active">
+                        <i class="nav__icon fas fa-book"></i>
+                        <span class="nav__text">Thư viện</span>
+                    </a>
+                    <a href="community.html" class="nav__link">
+                        <i class="nav__icon fas fa-users"></i>
+                        <span class="nav__text">Cộng đồng</span>
+                    </a>
+                    <a href="support.html" class="nav__link">
+                        <i class="nav__icon fas fa-headset"></i>
+                        <span class="nav__text">Hỗ trợ</span>
+                    </a>
+                </div>
+                <div class="nav__actions">
+                    <a href="#" class="nav__language-btn">
+                        <i class="fas fa-globe"></i>
+                        <span>Tiếng Việt</span>
+                    </a>
+                    <a href="#" class="nav__login-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Đăng nhập</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="library">
+            <div class="library__header">
+                <h1 class="library__title">Thư Viện Game</h1>
+                <div class="library__filters">
+                    <div class="library__search">
+                        <input type="text" placeholder="Tìm kiếm game..." class="library__search-input">
+                        <i class="fas fa-search library__search-icon"></i>
+                    </div>
+                    <div class="library__filter-buttons">
+                        <button class="library__filter-btn library__filter-btn--active">Tất cả</button>
+                        <button class="library__filter-btn">Đã cài đặt</button>
+                        <button class="library__filter-btn">Yêu thích</button>
+                    </div>
+                    <div class="library__sort">
+                        <select class="library__sort-select">
+                            <option value="recent">Gần đây nhất</option>
+                            <option value="alphabetical">Theo tên A-Z</option>
+                            <option value="playtime">Thời gian chơi</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="library__grid">
+                <div class="library-card">
+                    <img class="library-card__image" src="./images/236390_library_600x900.jpg" alt="Red Dead Redemption 2">
+                    <div class="library-card__content">
+                        <h3 class="library-card__title">Red Dead Redemption 2</h3>
+                        <div class="library-card__stats">
+                            <span class="library-card__playtime">Đã chơi: 120 giờ</span>
+                            <span class="library-card__last-played">Lần cuối: 2 ngày trước</span>
+                        </div>
+                        <div class="library-card__actions">
+                            <button class="library-card__play-btn">
+                                <i class="fas fa-play"></i> Chơi ngay
+                            </button>
+                            <button class="library-card__more-btn">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="library-card">
+                    <img class="library-card__image" src="./images/1874900_library_600x900.jpg" alt="Far Cry 6">
+                    <div class="library-card__content">
+                        <h3 class="library-card__title">Far Cry 6</h3>
+                        <div class="library-card__stats">
+                            <span class="library-card__playtime">Đã chơi: 45 giờ</span>
+                            <span class="library-card__last-played">Lần cuối: 1 tuần trước</span>
+                        </div>
+                        <div class="library-card__actions">
+                            <button class="library-card__install-btn">
+                                <i class="fas fa-download"></i> Cài đặt
+                            </button>
+                            <button class="library-card__more-btn">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__links">
+            <a href="#" class="footer__link">Điều khoản dịch vụ</a>
+            <a href="#" class="footer__link">Chính sách bảo mật</a>
+            <a href="#" class="footer__link">Liên hệ</a>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
